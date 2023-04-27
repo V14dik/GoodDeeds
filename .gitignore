@@ -321,3 +321,5 @@ https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 .idea/**/azureSettings.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,node,react,webstorm,visualstudiocode
+
+mongo-data
