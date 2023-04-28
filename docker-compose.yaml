@@ -1,13 +1,34 @@
-version: '3'
+version: '3.9'
+
 services:
+
   mongo:
-    image: mongo
+    build: .
     container_name: mongo
     restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin
+    networks:
+      - mongo
     ports:
-      - 27016:27016
-    volumes:
-      - ./mongo-data:/data/db
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=test
+networks:
+  mongo:
+
+#  api:
+#    build: .
+#    volumes:
+#      - .:/app
+#      - /app/node_modules
+#    ports:
+#      - ${APP_PORT}:${APP_PORT}
+#    command: npm run start:dev
+#    env_file:
+#      - .env
+#    depends_on:
+#      - mongodb
+#
+#volumes:
+#  mongodb_data_container:
