@@ -1,10 +1,23 @@
-import {Controller, Get} from '@nestjs/common';
+import {Body, Controller, Get, Post} from '@nestjs/common';
+import {UserService} from "./user.service";
+import {CreateUserDto} from "./dto/create-user.dto";
+import {CreateUserReqDto} from "./dto/create-user.req.dto";
+import * as bcrypt from "bcrypt";
 
 @Controller('/user')
 export class UserController {
+    constructor(private userService: UserService) {}
+
+    @Post()
+    async create(@Body() dto: CreateUserReqDto) {
+        const salt = await bcrypt.genSalt(10);
+        const passwordHash  = await bcrypt.hash(dto.password, salt);
+        const user: CreateUserDto = {userName: dto.userName, passwordHash: passwordHash}
+        return this.userService.create(user);
+    }
 
     @Get()
     getUser() {
-        return "User";
+        return this.userService.getAll();
     }
 }

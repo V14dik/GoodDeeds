@@ -8,7 +8,8 @@ import { UserModule } from './user/user.module';
 import { DeedModule } from './deed/deed.module';
 
 @Module({
-  imports: [MongooseModule.forRoot("mongodb://0.0.0.0:27017/test"), UserModule, DeedModule,],
+  imports: [MongooseModule.forRoot("mongodb://mongo:mongo@0.0.0.0:27017/test?authSource=admin"),
+    UserModule, DeedModule,],
   controllers: [AppController],
   providers: [AppService],
 })
