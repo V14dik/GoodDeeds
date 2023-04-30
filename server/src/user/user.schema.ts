@@ -12,9 +12,6 @@ export class User {
     @Prop()
     passwordHash: string;
 
-    @Prop({type: [{type: Types.ObjectId, ref: "Deed"}]})
-    listOfDeeds: Deed[];
-
     @Prop({type: [{type: Types.ObjectId, ref: "User"}]})
     friends: User[];
 }

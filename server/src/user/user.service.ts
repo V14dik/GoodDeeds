@@ -14,19 +14,26 @@ export class UserService {
     ) {}
 
     async create (dto: CreateUserDto) {
-        const user = await this.userModel.create({...dto, listOfDeeds: [], friends: []});
+        const user = await this.userModel.create({...dto, friends: []});
         const payload = {username: user.userName, sub: user._id};
         return {
             access_token: await this.jwtService.signAsync(payload),
         };
     }
 
-    async findUser(userName: string){
-        return this.userModel.findOne(({userName: userName}));
+    async update(userId, toUpdate) {
+        return this.userModel.findByIdAndUpdate(userId, {...toUpdate}, {new: true});
     }
 
-    async getAll (): Promise<User[]> {
-        const users = await this.userModel.find();
-        return users;
+    async delete(userId) {
+        await this.userModel.findByIdAndDelete(userId);
+    }
+
+    async searchByName(userName) {
+        return this.userModel.find({userName});
+    }
+
+    async findUser(userName: string){
+        return this.userModel.findOne(({userName: userName}));
     }
 }
