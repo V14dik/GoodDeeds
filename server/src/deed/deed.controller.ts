@@ -14,7 +14,7 @@ export class DeedController {
     }
 
     @Post()
-    async createDeed(@Body() dto: CreateDeedDto){
+    async createDeed(@Body() dto: CreateDeedDto) {
         return this.deedService.create(dto);
     }
 
