@@ -9,9 +9,6 @@ export class Deed {
     @Prop()
     content: string;
 
-    @Prop()
-    isDone: boolean;
-
     @Prop({type: Types.ObjectId, ref: "User"})
     user: User
 }

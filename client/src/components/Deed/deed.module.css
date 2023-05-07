@@ -1,0 +1,15 @@
+.deed{
+    height: 2rem;
+    border: 2px solid #011;
+    border-radius: 10px;
+    padding: 0 4px;
+    position: relative;
+}
+
+.bin{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}

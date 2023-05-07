@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import axios from "axios";
 
 export interface UserState {
-    isLogin: boolean
+    isLogin: boolean,
 }
 
 const initialState : UserState = {
@@ -16,7 +16,6 @@ export const user = createSlice({
     initialState,
     reducers: {
         setIsLogin: (state, action) => {
-            console.log("set", action.payload)
             state.isLogin = action.payload;
         },
         signIn: (state, action) => {
