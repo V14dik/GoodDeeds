@@ -1,0 +1,23 @@
+.search {
+    width: 25%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.usersList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 0;
+}
+
+.searchResult {
+    width: 100%;
+    height: 1.7rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 2px;
+}

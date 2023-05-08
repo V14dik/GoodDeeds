@@ -2,7 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 import styles from "./createDeed.module.css";
 
-export default function CreateDeed() {
+interface CreateDeedProps {
+  onChange: () => void;
+}
+
+export default function CreateDeed({ onChange }: CreateDeedProps) {
   const [deed, setDeed] = useState("");
 
   const onCreateHandler = async () => {
@@ -15,6 +19,8 @@ export default function CreateDeed() {
         },
       }
     );
+    setDeed("");
+    onChange();
   };
   return (
     <>

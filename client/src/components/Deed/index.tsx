@@ -3,11 +3,20 @@ import bin from "../../assets/icons/bin-svgrepo-com.svg";
 import Image from "next/image";
 import axios from "axios";
 
-export default function Deed({ deed }: any) {
+interface DeedProps {
+  deed: {
+    content: string;
+    _id: number;
+  };
+  onChange: () => void;
+}
+
+export default function Deed({ deed, onChange }: any) {
   const deleteDeed = async () => {
     const res = await axios.delete("http://localhost:8000/deed", {
       params: { deedId: deed._id },
     });
+    onChange();
   };
 
   return (

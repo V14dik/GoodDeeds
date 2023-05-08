@@ -131,3 +131,8 @@ form h1 {
     font-size: 22px;
     font-weight: bold;
 }
+
+#__next{
+    display: flex;
+    flex-direction: column;
+}

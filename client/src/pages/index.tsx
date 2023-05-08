@@ -1,9 +1,7 @@
 import Head from "next/head";
 import MainLayout from "@/layouts/MainLayout";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import CreateDeed from "@/components/CreateDeed";
 import DeedsList from "@/components/DeedsList";
+import SearchUser from "@/components/UserSearch";
 
 export default function Home() {
   return (
@@ -14,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>
-        <CreateDeed />
+        <SearchUser />
         <DeedsList />
       </MainLayout>
     </>
