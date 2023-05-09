@@ -2,8 +2,12 @@ import Head from "next/head";
 import MainLayout from "@/layouts/MainLayout";
 import DeedsList from "@/components/DeedsList";
 import SearchUser from "@/components/UserSearch";
+import { useState } from "react";
 
 export default function Home() {
+  const [isFriend, setIsFriend] = useState(false);
+  const [friendId, setFriendId] = useState(NaN);
+
   return (
     <>
       <Head>
@@ -13,7 +17,7 @@ export default function Home() {
       </Head>
       <MainLayout>
         <SearchUser />
-        <DeedsList />
+        <DeedsList isFriendList={isFriend} />
       </MainLayout>
     </>
   );

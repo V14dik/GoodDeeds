@@ -11,7 +11,7 @@ interface DeedProps {
   onChange: () => void;
 }
 
-export default function Deed({ deed, onChange }: any) {
+export default function Deed({ deed, onChange }: DeedProps) {
   const deleteDeed = async () => {
     const res = await axios.delete("http://localhost:8000/deed", {
       params: { deedId: deed._id },

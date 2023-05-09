@@ -4,8 +4,14 @@ import Deed from "../Deed";
 import styles from "./deedsList.module.css";
 import CreateDeed from "../CreateDeed";
 
-export default function DeedsList() {
+interface DeedListProps {
+  isFriendList: boolean;
+  friendId?: number;
+}
+
+export default function DeedsList(props: DeedListProps) {
   const [deedsList, setDeeds] = useState([]);
+  const [isFriend, setIsFriend] = useState(false);
 
   async function getDeeds() {
     const res = await axios.get("http://localhost:8000/deed/list", {
@@ -15,6 +21,7 @@ export default function DeedsList() {
     });
     setDeeds(res.data.reverse());
   }
+
   useEffect(() => {
     getDeeds();
   }, []);
